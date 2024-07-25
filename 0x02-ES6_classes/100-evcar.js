@@ -1,6 +1,7 @@
-// 100-evcar.js
-
-import Car from './10-car.js';
+/* Import Car from 10-car.js
+   Implement a class EVCar
+   Constructor attributes: brand, motor, color, range */
+import Car from './10-car';
 
 export default class EVCar extends Car {
   constructor(brand, motor, color, range) {
@@ -8,13 +9,7 @@ export default class EVCar extends Car {
     this._range = range;
   }
 
-  // Override cloneCar to return an instance of Car
-  cloneCar() {
-    return super.cloneCar();  // Calls the Car's cloneCar method
-  }
-
-  // Getter for range
-  get range() {
-    return this._range;
+  static get [Symbol.species]() {
+    return Car;
   }
 }
